@@ -1,3 +1,7 @@
+wildfire/
+Intermediate Data/
+Starting Data/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
