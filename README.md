@@ -1,7 +1,7 @@
 # data-512-project
 This course project aims to analyze wildfire impacts in Santa Fe, New Mexico. The end goal is to be able to inform policymakers, city managers, city councils, or other civic institutions, to make an informed plan for how they could or whether they should make plans to mitigate future impacts from wildfires.
 
-Sources:
+## Sources:
 - [Combined wildland fire datasets for the United States and certain territories, 1800s-Present (combined wildland fire polygons)](https://www.sciencebase.gov/catalog/item/61aa537dd34eb622f699df81)
   - This source was crawled to obtain fire metadata and polygons. The data was then filtered to within 1250 miles of Santa Fe and fire season from May 1st to October 31st and then used to calculate an annual smoke estimate for Santa Fe, NM.
   - The citation is Welty, J.L., and Jeffries, M.I., 2021, Combined wildland fire datasets for the United States and certain territories, 1800s-Present: U.S. Geological Survey data release, https://doi.org/10.5066/P9ZXGFY3.
@@ -45,7 +45,7 @@ Sources:
     - Sex (str): Male or Female
     - Ethnicity/Race (str): American Indian or Alaska Native, Asian or Pacific Islander, Black or African American, Hispanic, White
 
-Issues and Special Considerations
+## Issues and Special Considerations
 - Wildfire Polygon Data:
   - The smoke estimate was calculated using a mixture of variables such as size, distance from the closest point of the fire to Santa Fe, and whether or not the fire was prescribed. Other data fields are missing to calculate an objectively correct smoke estimate such as the wind direction and magnitude, the amount of flammable material in the area, and the topography of the area.
   - This dataset merges many existing wildfire and prescribed fire datasets that are limited in some way.
@@ -65,8 +65,8 @@ Issues and Special Considerations
  
 My code creates no output files, but I save intermediate data in a folder called "Intermediate Data". The files generated are too big for this repository. To generate these files, run the notebook "part_1_common_analysis" from top to bottom. Visualizations are embedded within the notebook.
 
-# Appendix
-## NM EPHT Terms of Use:
+## Appendix
+### NM EPHT Terms of Use:
 The data and information provided through the NM-EPHT Query System are intended to support any individuals or entities engaged in activities designed solely to enhance the well-being of a specific community, which may include the State of New Mexico. Allowed activities include informing evidence-based decision-making in New Mexico to plan and improve health service delivery, evaluate health care interventions and systems, and inform health policy decisions. Other uses are not permissible.
 
 As an NM-EPHT Query System user, I AGREE TO:
