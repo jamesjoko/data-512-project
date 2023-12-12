@@ -66,12 +66,14 @@ This course project aims to analyze wildfire impacts in Santa Fe, New Mexico. Th
 ## Intermediate Data Files
 - annual_smoke_estimate.csv
   - Contains the annual smoke estimate for Santa Fe, NM using the smoke estimate calculation in the part 1 notebook and final report
+  - Size: 2KB
   - Data Structure: tabular data (.csv)
   - Data Fields:
     - year (int): Year of the annual smoke estimate. Domain: 1963-2020
     - smoke_estimate (float): estimated smoke impact on Santa Fe residents
 - santa_fe_fires.json
   - Contains the fire metadata and polygons of all fires in the last 60 years within 1250 miles of Santa Fe that occured during the annual fire season.
+  - Size: 1.7 GB
   - Data Structure: JSON objects
   - Data Fields for each fire:
     - attributes
@@ -81,7 +83,8 @@ This course project aims to analyze wildfire impacts in Santa Fe, New Mexico. Th
     - geometry
       - rings (List[List[float]]): Contains one or more polygons along with the polygon coordinates that describe the location of the fire's impacted area.
 - santa_fe_yearly_aqi.json
-  - Contains the annual average AQI for Santa Fe during the annual fire season. 
+  - Contains the annual average AQI for Santa Fe during the annual fire season.
+  - Size: 2KB
   - Data Structure: JSON objects
   - Data Fields:
     - key | year (str): the year of the annual average AQI. Domain: 1974-2023.
