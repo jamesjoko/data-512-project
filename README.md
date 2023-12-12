@@ -1,4 +1,4 @@
-![image](https://github.com/jamesjoko/data-512-project/assets/45160871/cabbb029-11ce-462c-a8fd-aaa2c0bfd90f)# data-512-project
+# data-512-project
 This course project aims to analyze wildfire impacts in Santa Fe, New Mexico. The end goal is to be able to inform policymakers, city managers, city councils, or other civic institutions, to make an informed plan for how they could or whether they should make plans to mitigate future impacts from wildfires.
 
 ## Sources:
