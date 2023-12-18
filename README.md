@@ -1,7 +1,7 @@
 # data-512-project
 This course project aims to analyze wildfire impacts in Santa Fe, New Mexico. The end goal is to be able to inform policymakers, city managers, city councils, or other civic institutions, to make an informed plan for how they could or whether they should make plans to mitigate future impacts from wildfires.
 
-Sources:
+## Sources:
 - [Combined wildland fire datasets for the United States and certain territories, 1800s-Present (combined wildland fire polygons)](https://www.sciencebase.gov/catalog/item/61aa537dd34eb622f699df81)
   - This source was crawled to obtain fire metadata and polygons. The data was then filtered to within 1250 miles of Santa Fe and fire season from May 1st to October 31st and then used to calculate an annual smoke estimate for Santa Fe, NM.
   - The citation is Welty, J.L., and Jeffries, M.I., 2021, Combined wildland fire datasets for the United States and certain territories, 1800s-Present: U.S. Geological Survey data release, https://doi.org/10.5066/P9ZXGFY3.
@@ -45,7 +45,7 @@ Sources:
     - Sex (str): Male or Female
     - Ethnicity/Race (str): American Indian or Alaska Native, Asian or Pacific Islander, Black or African American, Hispanic, White
 
-Issues and Special Considerations
+## Issues and Special Considerations
 - Wildfire Polygon Data:
   - The smoke estimate was calculated using a mixture of variables such as size, distance from the closest point of the fire to Santa Fe, and whether or not the fire was prescribed. Other data fields are missing to calculate an objectively correct smoke estimate such as the wind direction and magnitude, the amount of flammable material in the area, and the topography of the area.
   - This dataset merges many existing wildfire and prescribed fire datasets that are limited in some way.
@@ -62,11 +62,39 @@ Issues and Special Considerations
   - Note that both datasets do not include visits or admissions from Veterans Affairs or Indian Health Service facilities.
   - I am unable to pull the full data and instead have to query for the information I want.
   - I emailed the NMEPHT on 11/17 and got a response on 12/6 reading "Access to the raw dataset would require an Internal Review Board (IRB) approval from your institution as NMDOH cannot release protected health information without it". The approval process would likely take longer than the remaining course duration, so I have to query for the information instead.
- 
-My code creates no output files, but I save intermediate data in a folder called "Intermediate Data". The files generated are too big for this repository. To generate these files, run the notebook "part_1_common_analysis" from top to bottom. Visualizations are embedded within the notebook.
 
-# Appendix
-## NM EPHT Terms of Use:
+## Intermediate Data Files
+- annual_smoke_estimate.csv
+  - Contains the annual smoke estimate for Santa Fe, NM using the smoke estimate calculation in the part 1 notebook and final report
+  - Size: 2KB
+  - Data Structure: tabular data (.csv)
+  - Data Fields:
+    - year (int): Year of the annual smoke estimate. Domain: 1963-2020
+    - smoke_estimate (float): estimated smoke impact on Santa Fe residents
+- santa_fe_fires.json
+  - Contains the fire metadata and polygons of all fires in the last 60 years within 1250 miles of Santa Fe that occured during the annual fire season.
+  - Size: 1.7 GB
+  - Data Structure: JSON objects
+  - Data Fields for each fire:
+    - attributes
+      - Assigned_Fire_Type (str): The fire type assigned to the focal fire boundary during the creation of the dataset
+      - Fire_Year (int): The calendar year when the dataset creators determined the fire occurred.
+      - GIS_Acres (float): The GIS calculated acres of the fire polygon using the Calculate Geometry tool in ArcGIS Pro.
+    - geometry
+      - rings (List[List[float]]): Contains one or more polygons along with the polygon coordinates that describe the location of the fire's impacted area.
+- santa_fe_yearly_aqi.json
+  - Contains the annual average AQI for Santa Fe during the annual fire season.
+  - Size: 2KB
+  - Data Structure: JSON objects
+  - Data Fields:
+    - key | year (str): the year of the annual average AQI. Domain: 1974-2023.
+    - value | aqi (float): The mean daily AQI of all days within the annual fire season. 
+
+## Reproducibility
+Before anything, the "GeoJSON Files.zip" file must be downloaded from [this source](https://www.sciencebase.gov/catalog/item/61aa537dd34eb622f699df81), unzipped, and the "GeoJSON Exports" folder must be placed in the "Starting Data" folder. My code creates no output files, but I save intermediate data in a folder called "Intermediate Data". Visualizations for the report and presentation are embedded within the notebooks. Some generated intermediate data files are too big to store in this repository. To generate these files, run the notebook "part_1_common_analysis.ipynb" from top to bottom. To run specific cells in "part_3_presentation_visuals.ipynb", "part_1_common_analysis.ipynb" must be run first from top to bottom to generate intermediate data files used in that notebook. If the part 1 notebook has already been run, results in the part 3 notebook can be generated by running all cells from top to bottom.
+
+## Appendix
+### NM EPHT Terms of Use:
 The data and information provided through the NM-EPHT Query System are intended to support any individuals or entities engaged in activities designed solely to enhance the well-being of a specific community, which may include the State of New Mexico. Allowed activities include informing evidence-based decision-making in New Mexico to plan and improve health service delivery, evaluate health care interventions and systems, and inform health policy decisions. Other uses are not permissible.
 
 As an NM-EPHT Query System user, I AGREE TO:
